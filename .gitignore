@@ -1,0 +1,5 @@
+.env
+/.idea
+/setup/ssl/cert.pem
+/setup/ssl/key.pem
+/setup/apache-host/httpd-vhosts.conf
