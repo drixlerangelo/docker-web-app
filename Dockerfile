@@ -1,11 +1,11 @@
-# use a apache with php docker image
-FROM php:7.3-apache
-
-# set the directory to root
-WORKDIR /
+# setup Apache with PHP
+FROM php:apache
 
 # update the system
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get upgrade -y
 
 # enable ssl
 RUN a2enmod ssl
+
+# restart apache
+RUN service apache2 restart
