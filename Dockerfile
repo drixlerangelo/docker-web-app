@@ -1,8 +1,8 @@
-# setup Apache with PHP
-FROM php:apache
+# initialize the PHP image
+ARG PHP_IMG
 
-# update the system
-RUN apt-get update && apt-get upgrade -y
+# setup the PHP image
+FROM "php:${PHP_IMG}"
 
 # enable ssl
 RUN a2enmod ssl

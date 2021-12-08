@@ -4,10 +4,11 @@ services:
     website_builder:
         build:
             context: .
+            args:
+            - PHP_IMG=${PHP_IMG}
         container_name: ${CONTAINER}
         ports:
             - 127.0.0.1:${HTTP_PORT}:80
-            - 127.0.0.1:${HTTPS_PORT}:443
         volumes:
             - ./www/:/var/www/html/
             - ./letsencrypt/data:/var/www/letsencrypt/data
