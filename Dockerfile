@@ -1,11 +1,11 @@
-# use a apache with php docker image
-FROM php:7.3-apache
+# initialize the PHP image
+ARG PHP_IMG
 
-# set the directory to root
-WORKDIR /
-
-# update the system
-RUN apt-get update && apt-get upgrade
+# setup the PHP image
+FROM "php:${PHP_IMG}"
 
 # enable ssl
 RUN a2enmod ssl
+
+# restart apache
+RUN service apache2 restart
