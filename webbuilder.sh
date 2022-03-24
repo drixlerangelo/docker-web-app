@@ -118,5 +118,6 @@ cron_cmd="${cron_cmd} -v $cert_path:/etc/letsencrypt"
 cron_cmd="${cron_cmd} -v $data_path:/data/letsencrypt certbot/certbot certonly --webroot"
 cron_cmd="${cron_cmd} --webroot-path=/data/letsencrypt -d $domain --cert-name $domain"
 cron_cmd="${cron_cmd} --email $email --agree-tos"
+cron_cmd="${cron_cmd} && systemctl restart apache2"
 
 (crontab -l; echo "$cron_cmd")|awk '!x[$0]++'|crontab -
