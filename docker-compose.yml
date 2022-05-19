@@ -14,3 +14,4 @@ services:
             - ./letsencrypt/data:/var/www/letsencrypt/data
             - ./letsencrypt/certs:/var/www/letsencrypt/certs
             - ./apache/container/${CONT_CONF}:/etc/apache2/sites-enabled/website.conf
+        restart: always

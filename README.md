@@ -38,6 +38,16 @@ The script has three (3) required and two (2) optional parameters.
       - It is a tag of the PHP Docker image
       - The default is `apache`
       - You can find different tags [here](https://hub.docker.com/_/php?tab=tags&page=1&name=apache)
+    - SERVER_IP (-a)
+      - It should be your static server IP
+      - It is where Let's Encrypt will refer to when validating your domain
+    - INDEX_PATH (-i)
+      - A folder you can specify inside the `www` folder
+      - Useful when you're using a framework like Laravel
+    - MODE (-m)
+      - The available values are `local` and `prod`
+      - The value `local` means it will be in a local environment, and as such, there is no SSL setup
+      - The value `prod` means the application is for production (live) setup
 3. Run the script with the parameters you provide. E.g.
     ```
     ./webbuilder.sh -u 8080 -s 4433 -e webmaster@example.com -p 8.1.0-apache
